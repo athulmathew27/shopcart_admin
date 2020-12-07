@@ -1,0 +1,13 @@
+.container-fluid{
+  min-width: 100%;
+  min-height: 100%;
+  .row{
+    min-height: 100%;
+    .nav{
+      margin-bottom: 4rem;
+    }
+    .foot{
+      margin-top: 2rem;
+    }
+  }
+}

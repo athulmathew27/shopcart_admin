@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color : black;
+$secondary-color : white;
+
+$navbar-color :#2874f0;
+$nav-text-color :white;
+$nav-background-color: #f1f3f6;
+$btn-color-primary :#2874f0;
+// $navbar-color :#659dbd;
+// $nav-text-color :white;
+// $nav-background-color: #f1f3f6;
+
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+*{
+  //margin:0;
+  //padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+.add-button{
+  height: 2.5rem;
+  width: 2.5rem;
+  color: $primary-color;
+  background-color: $secondary-color;
+  border-radius: 50%;
+}
+
+.primary-button{
+  background-color: $btn-color-primary;
+  color: white;
+  outline: none;
+  box-shadow: 1px 1px 5px 0px $primary-color;
+  font-size: 1.2rem;
+}
+
+.dialog-header-font{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+html, body {
+  height: 100%;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif !important;
+}
+body {
+  //  font-family: 'Open Sans','Helvetica Neue', sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
+
+   background:white;  /* fallback for old browsers  #485563*/
+  //  background: -webkit-linear-gradient(to right, #f6f8fa, #d5e4f3);  /* Chrome 10-25, Safari 5.1-6 */
+  //  background: linear-gradient(to right, #d3d5d6, #f0f2f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+
+  }
