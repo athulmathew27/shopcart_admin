@@ -1,0 +1,15 @@
+export interface OrderFull {
+  category: string,
+  delivaryAddress: string,
+  image: string,
+  myOrderId: string,
+  myProductId: string,
+  orderPlacedTime: Date,
+  paymentType: string,
+  price: number,
+  product: string,
+  productID: string,
+  quantity: number,
+  toPay: number,
+  userId: any,
+}

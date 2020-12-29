@@ -1,0 +1,65 @@
+<h6 class="dialog-header-font">Update the Product Status</h6>
+<hr>
+<div class="row">
+  <div class="col">
+    <form class="form" #updateForm="ngForm" (ngSubmit)="onUpdate(updateForm.value)">
+      <div class="form-group">
+        <mat-label>Status</mat-label>
+        <mat-select class="form-control" matInput name="status" ngModel #status="ngModel" required>
+          <mat-option value="Order Placed" *ngIf="currentStatus.shipped < 1 && currentStatus.cancelled < 1">Order Placed</mat-option>
+          <mat-option value="Shipped" *ngIf="currentStatus.nearby < 1 && currentStatus.cancelled < 1">Shipped</mat-option>
+          <mat-option value="Near By" *ngIf="currentStatus.delivered < 1 && currentStatus.shipped > 0  && currentStatus.cancelled < 1">Near By</mat-option>
+          <mat-option value="Delivered" *ngIf="currentStatus.nearby > 1  && currentStatus.cancelled < 1">Delivered</mat-option>
+          <mat-option value="Cancelled" *ngIf="currentStatus.delivered < 1">Cancel</mat-option>
+        </mat-select>
+        </div>
+        <div *ngIf="status.invalid && (status.dirty || status.touched)"  class="errormessage">
+          <div *ngIf="status.errors.required">
+            This Feild is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <mat-label>Description </mat-label>
+          <textarea class="form-control" cols="21" rows="5"   name="description" ngModel #description="ngModel" required minlength="3"></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)"  class="errormessage">
+            <div *ngIf="description.errors.required">
+              This feild is required.
+            </div>
+            <div *ngIf="description.errors.minlength">
+              description must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group" (click)="picker.open()">
+              <mat-label>Choose a date</mat-label>
+              <input class="form-control"  name="date" ngModel #date="ngModel" required [matDatepicker]="picker">
+              <div *ngIf="date.invalid && (date.dirty || date.touched)"  class="errormessage">
+                <div *ngIf="date.errors.required">
+                  This feild is required.
+                </div>
+              </div>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <mat-label>Location</mat-label>
+              <input class="form-control"  name="location" ngModel #location="ngModel" required >
+              <div *ngIf="location.invalid && (location.dirty || location.touched)"  class="errormessage">
+                <div *ngIf="location.errors.required">
+                  This feild is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <button class="primary-button btn-md" mat-raised-button [disabled]="updateForm.invalid"type="submit">Save</button>
+      <button class="secondary-button btn-md" mat-raised-button (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>

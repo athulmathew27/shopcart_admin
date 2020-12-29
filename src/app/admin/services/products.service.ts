@@ -12,18 +12,32 @@ export class ProductsService {
   constructor(private firestore: AngularFirestore,
               private storage :AngularFireStorage) { }
 
-  addNewProduct(productData : Product, image :any){
-    var filepath = `productImages/${image.name}_${new Date().getTime()}`;
-    const fileRef = this.storage.ref(filepath);
-    this.storage.upload(filepath, image).snapshotChanges().pipe(
-    finalize(()=>{
-      fileRef.getDownloadURL().subscribe((imgUrl)=>{
-        productData.image = imgUrl
-        this.firestore.collection<Product>('products').add(productData).then(()=>alert("New Product Added")).catch(err=>console.log(err))
+  addNewProduct(productData : Product, image :any, productId){
+    console.log(productId)
+    if(productId){
+      var filepath = `productImages/${image.name}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filepath);
+      this.storage.upload(filepath, image).snapshotChanges().pipe(
+      finalize(()=>{
+        fileRef.getDownloadURL().subscribe((imgUrl)=>{
+          productData.image = imgUrl
+          this.firestore.collection<Product>('products').doc(productId).update(productData).then(()=>alert("New Product Added")).catch(err=>console.log(err))
+        })
       })
-    })
-    ).subscribe()
-
+      ).subscribe()
+    }
+    else{
+      var filepath = `productImages/${image.name}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filepath);
+      this.storage.upload(filepath, image).snapshotChanges().pipe(
+      finalize(()=>{
+        fileRef.getDownloadURL().subscribe((imgUrl)=>{
+          productData.image = imgUrl
+          this.firestore.collection<Product>('products').add(productData).then(()=>alert("New Product Added")).catch(err=>console.log(err))
+        })
+      })
+      ).subscribe()
+    }
   }
 
 

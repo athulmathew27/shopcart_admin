@@ -1,0 +1,15 @@
+<mat-card class="card">
+  <div class="top">
+    <p class="text">Actions</p>
+  </div>
+  <div class="bottom">
+    <div class="splice" *ngFor="let item of logData">
+      <div class="time-sec" *ngIf="item.message == 'New Order is Placed' || item.message == 'Cancelled' ">{{item.time.toDate() |date: 'hh:mm' }}</div>
+      <div class="time-sec" *ngIf="item.message == 'Out of Stock'">{{item.time |date: 'hh:mm' }}</div>
+      <div class="text-sec">
+        <span class="text">{{item.message}}</span>
+        <span class="text">{{item.sub}}</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

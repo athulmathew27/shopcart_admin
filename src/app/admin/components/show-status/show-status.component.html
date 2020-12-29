@@ -1,0 +1,55 @@
+
+
+<div class="main-container">
+  <app-add-update-status *ngIf="showAddUpdate" [orderId]="orderData.orderId" [productId]="productId" [currentStatus]="currentStatus"
+  (callParentFunction)="showAddUpdateStatusToggle($event)"></app-add-update-status>
+
+
+  <button mat-raised-button class="primary-button" (click)="addNewUpdate()" *ngIf="!showAddUpdate">Update</button>
+
+  <p class="title" *ngIf="ordered > 0">Order Placed</p>
+  <div class="" *ngFor="let item of statusData">
+    <div class="order-sec" *ngIf="item.status == 'Order Placed'">
+      <p class="date">{{item.time.seconds*1000 |date}}</p>
+      <p class="text-loc">{{item.location}}</p>
+      <p class="text">{{item.text}}</p>
+    </div>
+  </div>
+
+  <p class="title" *ngIf="shipped > 0">Shipped</p>
+  <div class="" *ngFor="let item of statusData">
+    <div class="order-sec" *ngIf="item.status == 'Shipped'">
+      <p class="date">{{item.time.seconds*1000 |date}}</p>
+      <p class="text-loc">{{item.location}}</p>
+      <p class="text">{{item.text}}</p>
+    </div>
+  </div>
+
+  <p class="title" *ngIf="nearby > 0">Near By</p>
+  <div class="" *ngFor="let item of statusData">
+    <div class="order-sec" *ngIf="item.status == 'Near By'">
+      <p class="date">{{item.time.seconds*1000 |date}}</p>
+      <p class="text-loc">{{item.location}}</p>
+      <p class="text">{{item.text}}</p>
+    </div>
+  </div>
+
+  <p class="title" *ngIf="delivered > 0">Delivered</p>
+  <div class="" *ngFor="let item of statusData">
+    <div class="order-sec" *ngIf="item.status == 'Delivered'">
+      <p class="date">{{item.time.seconds*1000 |date}}</p>
+      <p class="text-loc">{{item.location}}</p>
+      <p class="text">{{item.text}}</p>
+    </div>
+  </div>
+
+  <p class="title" *ngIf="cancelled > 0">Cancelled</p>
+  <div class="" *ngFor="let item of statusData">
+    <div class="order-sec" *ngIf="item.status == 'Cancelled'">
+      <p class="date">{{item.time.seconds*1000 |date}}</p>
+      <p class="text-loc">{{item.location}}</p>
+      <p class="text">{{item.text}}</p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,58 @@
+.card{
+  margin-bottom: 2rem;
+ .top{
+   padding-bottom: .5rem;
+   .text{
+     font-size: 1.1rem;
+     opacity: .8;
+   }
+ }
+ .bottom{
+   display: flex;
+   justify-content: space-between;
+   .left{
+     display: flex;
+     align-items: center;
+     margin-bottom: 1rem;
+     &:last-child{
+      margin-bottom: 0;
+    }
+     .index-sec{
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+       background-color: gainsboro;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-right: 2rem;
+
+     }
+     .text{
+      font-size: 1.1rem;
+      opacity: .8;
+     }
+   }
+   .chips{
+    border-radius: 11px;
+    background-color: #d6d4d4;
+    width: 42px;
+    height: 24px;
+    padding: 3px 4px 3px 4px;
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+    .icon{
+      font-size: 1rem;
+      height: 1rem;
+      margin-top: 2px;
+      width: 16px;
+      opacity: 0.6;
+    }
+    .text{
+      font-size: 1rem;
+      opacity: .8;
+    }
+  }
+ }
+}

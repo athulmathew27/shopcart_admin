@@ -1,0 +1,15 @@
+<mat-card class="card">
+  <div class="top">
+    <p class="text">Most Selling Category</p>
+  </div>
+  <div class="bottom" *ngFor="let item of finalResult; let i = index">
+    <div class="left">
+      <div class="index-sec">{{i+1}}</div>
+      <span class="text">{{item.category}}</span>
+    </div>
+    <div class="chips">
+      <span class="text" *ngIf="item.quantity > 999">{{item.quantity/1000 | number:'1.0-0'}}k</span>
+      <span class="text" *ngIf="item.quantity < 1000">{{item.quantity}}</span>
+    </div>
+  </div>
+</mat-card>

@@ -1,6 +1,20 @@
-.row{
-  width: 100%;
-  background-color: #212121;
+
+.main-row{
   color: white;
-  min-height: 200px;
-}
+  background-color: #212121;
+  line-height: 1.4;
+  margin-bottom: -23rem;
+  margin-top: 2rem;
+  padding-top: 4rem;
+    .title{
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+    .text{
+      text-transform: capitalize;
+      line-height: 1.4;
+    }
+  }
+
+

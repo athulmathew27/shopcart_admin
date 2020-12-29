@@ -20,17 +20,12 @@ table {
   left: 0;
   bottom: 56px;
   right: 0;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.15);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.example-rate-limit-reached {
-  color: #980000;
-  max-width: 360px;
-  text-align: center;
 }
 
 /* Column Widths */
@@ -49,8 +44,11 @@ table {
 }
 .address{
   min-width: 20rem;
+  margin-right: 2rem;
 }
-
+.orderid{
+  margin-right: 1rem;
+}
 .container{
   min-width: 99%;
   margin-top: 2rem;
@@ -63,17 +61,36 @@ table {
   display: flex;
   justify-content: space-between;
   .left{
-    margin: 1rem;
+    margin: 1.8rem;
+    display: flex;
+    .form-control{
+      width: 300px;
+    }
+    .search-icon{
+      margin-left: -2rem;
+      margin-top: 2px;
+      opacity: .7;
+    }
+  }
+  .right{
+    display: flex;
+    .refresh-icon{
+      font-size: 2rem;
+      color: $navbar-color;
+      margin: 2rem 2rem 0 0;
+      transition:2.5s;
+      cursor: pointer;
+    }
+    .rotate-action{
+      font-size: 2rem;
+      color: $navbar-color;
+      margin: 2rem 2rem 0 0;
+      transition:2.5s;
+      transform:rotate(720deg);
+      cursor: pointer;
+    }
   }
 }
 
-.primary-button{
-  height: 3.1rem;
-  margin: .5rem 1rem 0 1rem;
-}
-.search-icon{
-  margin-left: -2rem;
-}
-.right{
-  display: flex;
-}
+
+

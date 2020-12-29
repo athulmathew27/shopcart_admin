@@ -7,16 +7,20 @@ import { PageNotFoundComponent} from '../app/admin/components/page-not-found/pag
 
 const routes: Routes = [
 {
-  path: '',
+  path: '', redirectTo : 'dashboard',
+  pathMatch : 'full'
+},
+{
+  path: 'dashboard',
+  loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
+},
+{
+  path: 'home',
   loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
 },
 {
   path: 'auth',
   loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
-},
-{
-  path: 'admin',
-  loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
 },
 {
   path:'**',

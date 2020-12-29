@@ -1,47 +1,63 @@
 @import '../../../../styles.scss';
 
-
-table {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
-
-  .table-text{
-    font-size: 1.1rem;
-    font-weight: 500;
-
-  }
-}
-.table-header-font{
-  font-weight: bold;
-  font-size: 1.2rem;
+.loading-shade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.primary-button{
-  @extend .primary-button;
+
+.mat-elevation-z8{
+  padding-top: 5px;
   margin-top: 2rem;
-  float: right;
-  margin-right: 2rem;
+  .table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .button-sec{
+      display: flex;
+      .btn-center{
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
 
-  &:hover{
-    background-color:rgb(196, 191, 191);
-    color: black;
+        .icon{
+          font-size: 14px;
+          padding-top: 3px;
+        }
+      }
+    }
   }
 }
 
-.edit-icon{
-  height: 1.2rem;
-  width: 1.5rem;
-  float: right;
-  transition: transform .2s;
-  &:hover{
-      transform: scale(1.2);
+.top-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  .left{
+    margin: 1.8rem;
+    display: flex;
+    .form-control{
+      width: 260px;
+    }
+    .search-icon{
+      margin-left: -2rem;
+      margin-top: 2px;
+      opacity: .7;
+    }
   }
-}
-.delete-icon{
-  @extend .edit-icon;
-  margin-right: .8rem;;
+  .right{
+
+  }
 }
 
 

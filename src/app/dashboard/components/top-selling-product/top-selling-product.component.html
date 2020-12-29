@@ -1,0 +1,8 @@
+<mat-card class="card">
+  <div class="top">
+    <p class="text">Top Selling Products</p>
+  </div>
+  <div class="bottom" *ngFor="let item of filteredProducts">
+    <app-item-row [image]="item.image" [name]="item.name" [count]="item.count" [icon]="'dollar'"></app-item-row>
+  </div>
+</mat-card>

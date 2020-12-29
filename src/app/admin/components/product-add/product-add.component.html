@@ -1,39 +1,48 @@
 <div class="row">
-  <div class="col">
-    <form class="form-style" [formGroup]="addProductForm" (ngSubmit)="onProductSave(addProductForm.value)">
-      <h6 class="dialog-header-font"> Add a new product...</h6>
-      <hr>
-      <mat-form-field class="full-width">
-        <mat-label>Product Name </mat-label>
-        <input matInput formControlName="name" placeholder="Ex. Carrot" >
-        <span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required</span>
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Category</mat-label>
-        <mat-select   formControlName="category">
-          <mat-option *ngFor="let cat of category | async" [value]="cat">  {{cat.name}}
-          </mat-option>
-        </mat-select>
+  <div class="col-12">
+    <div class="vertical">
+      <div class="left">
+        <form class="form-style" [formGroup]="addProductForm" (ngSubmit)="onProductSave(addProductForm.value)">
+          <h6 class="dialog-header-font">PRODUCT</h6>
+          <hr>
+          <div class="form-group">
+            <mat-label>Product Name </mat-label>
+            <input class="form-control" [(ngModel)]="productName" matInput formControlName="name" placeholder="Ex. Carrot" >
+            <span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required</span>
+          </div>
+          <div class="form-group">
+            <mat-label>Category</mat-label>
+            <mat-select class="form-control" [(ngModel)]="productCategory" formControlName="category">
+              <mat-option *ngFor="let cat of category | async" [value]="cat">  {{cat.name}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <mat-label>Price/Kg </mat-label>
+                <input class="form-control" matInput type="number" [(ngModel)]="productPrice" formControlName="price" placeholder="">
+                <span class="errormessage" *ngIf="price.invalid && price.touched  ">Price is required</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <mat-label>Stock </mat-label>
+                <input class="form-control" matInput type="number" [(ngModel)]="productStock" formControlName="stock" placeholder="">
+                <span class="errormessage" *ngIf="stock.invalid && stock.touched  ">stock is required</span>
+              </div>
+            </div>
+          </div>
+          <input type="file" accept="image/*" #image formControlName="image"  (change)="imageFetcher($event)">
+          <span class="errormessage" *ngIf="image.invalid && image.touched  ">Image is required</span>
 
-      </mat-form-field>
-      <mat-form-field class="half-width">
-        <mat-label>Price/Kg </mat-label>
-        <input matInput type="number" formControlName="price" placeholder="">
-        <span class="errormessage" *ngIf="price.invalid && price.touched  ">Price is required</span>
-      </mat-form-field>
-
-      <mat-form-field class="half-width">
-        <mat-label>Stock </mat-label>
-        <input matInput type="number" formControlName="stock" placeholder="">
-        <span class="errormessage" *ngIf="stock.invalid && stock.touched  ">stock is required</span>
-      </mat-form-field>
-
-      <input type="file" accept="image/*" #image formControlName="image" (change)="imageFetcher($event)">
-      <span class="errormessage" *ngIf="image.invalid && image.touched  ">Image is required</span>
-
-      <button mat-raised-button [disabled]="!addProductForm.valid" mat-dialog-close type="submit" class="primary-button">Add</button>
-    </form>
-
+          <button mat-raised-button [disabled]="!addProductForm.valid" mat-dialog-close type="submit" class="primary-button">Add</button>
+        </form>
+      </div>
+      <div class="right" *ngIf="productImage">
+        <img [src]="productImage" alt="" class="image">
+      </div>
+    </div>
   </div>
 </div>
 

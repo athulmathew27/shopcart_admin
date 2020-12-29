@@ -1,0 +1,14 @@
+<mat-card class="card" *ngIf="product">
+  <div class="top">
+    <p class="text">Best Selling Product</p>
+  </div>
+  <div class="bottom">
+    <div class="left">
+      <img [src]="product.image" alt="" class="image">
+    </div>
+    <div class="right">
+      <p class="text">$</p>
+      <p class="text">{{product.price}}</p>
+    </div>
+  </div>
+</mat-card>

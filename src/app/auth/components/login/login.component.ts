@@ -43,10 +43,11 @@ export class LoginComponent implements OnInit {
     .then(res =>{
       if(res.user.email == "admin@admin.com"){
         localStorage.setItem('user',JSON.stringify(res.user));
-        this.router.navigate(['/admin/home'])
+        this.router.navigate(['/home/product'])
       }
       else{
         this.router.navigate(['/auth/login'])
+        alert("Enter valid username or password")
       }
     }).catch(err=>{
       alert(err)

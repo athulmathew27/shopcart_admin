@@ -12,7 +12,12 @@ import { DateFilterPipe } from './pipes/date-filter.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SharedModule} from '../shared/shared.module';
 import { ProductsService } from './services/products.service';
-
+import { ShowInvoiceComponent } from './components/show-invoice/show-invoice.component';
+import { UpdateStatusComponent } from './components/update-status/update-status.component';
+import { ShowStatusComponent } from './components/show-status/show-status.component';
+import { AddUpdateStatusComponent } from './components/add-update-status/add-update-status.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { PaymentTypePipe } from './pipes/payment-type.pipe';
 
 
 @NgModule({
@@ -27,6 +32,12 @@ import { ProductsService } from './services/products.service';
     CategoryAddComponent,
     CategoryListComponent,
     PageNotFoundComponent,
+    ShowInvoiceComponent,
+    UpdateStatusComponent,
+    ShowStatusComponent,
+    AddUpdateStatusComponent,
+    ProductListComponent,
+    PaymentTypePipe,
   ],
   providers:[
     ProductsService

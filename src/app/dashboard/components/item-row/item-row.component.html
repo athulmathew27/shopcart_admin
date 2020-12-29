@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="left">
+    <div class="img">
+      <img [src]="image" alt="" class="image">
+    </div>
+    <P class="text">{{name}}</P>
+  </div>
+  <div class="chips" *ngIf="icon == 'dollar'">
+    <span class="text" *ngIf="count > 999">$ {{count /1000 | number:'1.0-0'}}k</span>
+    <span class="text" *ngIf="count < 1000">$ {{count }}</span>
+  </div>
+  <div class="chips" *ngIf="icon == 'eye'">
+    <mat-icon class="icon">remove_red_eye</mat-icon>
+    <span class="text" *ngIf="count > 999"> {{count /1000 | number:'1.0-0'}}k</span>
+    <span class="text" *ngIf="count < 1000"> {{count }}</span>
+  </div>
+</div>

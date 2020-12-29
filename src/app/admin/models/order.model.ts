@@ -1,4 +1,8 @@
 export interface Orders{
-  userId : string,
-  date : Date
+  delivaryAddress: string,
+  orderId: string,
+  paymentType: string,
+  toPay: string,
+  orderPlacedTime :Date,
+  userId: string,
 }

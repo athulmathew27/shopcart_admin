@@ -1,0 +1,41 @@
+.card{
+  margin-left: 2rem;
+  height: 50vh;
+  overflow: auto;
+  .top{
+    padding-bottom: .5rem;
+    .text{
+      font-size: 1.1rem;
+      opacity: .8;
+    }
+  }
+  .bottom{
+    .splice{
+      display: flex;
+      margin-bottom: 1rem;
+      &:last-child{
+        margin-bottom: 0%;
+      }
+      .time-sec{
+        background-color: inherit;
+        border: solid 1px #e2e1e1;
+        margin-right: 2rem;
+        height: 22px;
+        padding: 3px 8px 0px 8px;
+        border-radius: 12px;
+      }
+      .text-sec{
+        display: flex;
+        flex-direction: column;
+        .text{
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}

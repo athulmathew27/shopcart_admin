@@ -1,0 +1,9 @@
+.col-sec{
+  padding: 2rem 1rem 2rem 1rem;
+  &:first-child{
+    padding-left: 2rem;
+  }
+  &:last-child{
+    padding-right: 2rem;
+  }
+}

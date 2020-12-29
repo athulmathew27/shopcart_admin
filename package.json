@@ -24,6 +24,8 @@
     "@angular/router": "~10.0.14",
     "bootstrap": "4.1.1",
     "firebase": "^7.0.0 || ^8.0.0",
+    "moment": "^2.29.1",
+    "ng-chartjs": "^0.2.1",
     "ngx-bootstrap": "^6.2.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

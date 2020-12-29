@@ -1,0 +1,11 @@
+<mat-card class="card">
+  <div class="top">
+    <p class="text">Total Sales</p>
+  </div>
+  <span class="text-main">{{total |currency}}</span>
+  <hr>
+  <div class="bottom">
+    <span class="text">{{orders}} total orders</span>
+    <span class="link-text" [routerLink]="['/home/orders']">View orders</span>
+  </div>
+</mat-card>

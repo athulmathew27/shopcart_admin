@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-lg-3 col-sec">
+   <app-best-sell-product (mostProfitProduct)="topSellingProduct($event)"></app-best-sell-product>
+    <app-most-view-product [mostViewedProduct]="mostViewedProductData"></app-most-view-product>
+    <app-most-selling-category [products]="products"></app-most-selling-category>
+  </div>
+  <div class="col-lg-3 col-sec">
+    <app-top-selling-product  [sorted]="sorted" [products]="products"></app-top-selling-product>
+    <app-most-view-products (mostViewedProduct)="mostViewedProduct($event)"></app-most-view-products>
+  </div>
+  <div class="col-lg-3 col-sec">
+    <app-sales-chart [products]="products"></app-sales-chart>
+    <app-general-statistics></app-general-statistics>
+    <app-staging-orders [products]="products"></app-staging-orders>
+  </div>
+  <div class="col-lg-3 col-sec">
+    <app-activity-log [products]="products"></app-activity-log>
+  </div>
+</div>
+
+

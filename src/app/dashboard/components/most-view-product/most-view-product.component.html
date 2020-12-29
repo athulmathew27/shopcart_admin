@@ -1,0 +1,14 @@
+<mat-card class="card" *ngIf="mostViewedProduct">
+  <div class="top">
+    <p class="text">Most Viewed Product</p>
+  </div>
+  <div class="bottom">
+    <div class="left">
+      <img [src]="mostViewedProduct.image" alt="" class="image">
+    </div>
+    <div class="right">
+      <mat-icon class="icon">remove_red_eye</mat-icon>
+      <span class="text">{{mostViewedProduct.views}}</span>
+    </div>
+  </div>
+</mat-card>

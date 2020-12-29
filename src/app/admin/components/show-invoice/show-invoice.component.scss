@@ -1,0 +1,72 @@
+@import '../../../../styles.scss';
+
+.main-row{
+  margin: 1rem;
+  .headline{
+    height: 10px;
+    width: 100%;
+    background-color:$navbar-color
+  }
+  .vertical{
+    display: flex;
+    justify-content: space-between;
+    .title{
+      font-size: 18px;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+    .image{
+      width: 80px;
+      height: 80px;
+    }
+    .left{
+      line-height: .7;
+      .text{
+        font-size: 1.1rem;
+      }
+    }
+    .right{
+      .text{
+        font-size: 1rem;
+      }
+    }
+  }
+  .address-sec{
+    margin-top: 1rem;
+    .address{
+      width: 50%;
+      .text{
+        font-size: 1rem;
+      }
+    }
+  }
+  .table{
+    margin-top: 1rem;
+    .head{
+      background-color:$navbar-color;
+      color: white;
+    }
+    .link-text{
+      color: $navbar-color;
+      cursor: pointer;
+    }
+  }
+}
+.grand{
+  float: right;
+  width: 150px;
+  .grand-tot-sec{
+    display: flex;
+    justify-content: space-between;
+    .text{
+      font-size: 1rem;
+    }
+  }
+}
+table tr th{
+  border: solid 1px #f8cf9e;
+}
+.button-sec{
+  float: right;
+  margin-right: 2rem;
+}

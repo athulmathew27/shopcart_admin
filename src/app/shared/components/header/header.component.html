@@ -1,4 +1,9 @@
 <div class="row">
-  <p class="title">ShopCart </p>
-  <p class="text" (click)="signout()" *ngIf="isLogin">Sign out</p>
+    <p class="title">ShopCart </p>
+    <div class="right">
+      <p class="text" [routerLink]="['/home/product']" [routerLinkActive]="'active'">Porduct</p>
+      <p class="text" [routerLink]="['/home/category']" [routerLinkActive]="'active'">Category</p>
+      <p class="text" [routerLink]="['/home/orders']" [routerLinkActive]="'active'">Orders</p>
+      <p class="text" (click)="signout()" >Sign out</p>
+    </div>
 </div>

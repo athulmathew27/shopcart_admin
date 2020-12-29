@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-6">
+    <div class="row main-row" id="componentID">
+    <div class="col-12">
+      <!-- <div class="headline"></div> -->
+      <!-- <div class="vertical">
+        <p class="title">INVOICE</p>
+        <img src="../../../../assets/images/conapny_logo.png" alt="" class="image">
+      </div> -->
+      <div class="vertical">
+        <div class="left">
+          <p class="text">Nilagirs Fresh</p>
+          <p class="text">Kakkanad Chittethukara,</p>
+          <p class="text">Opposite District Prison,</p>
+          <p class="text">Kerala 682030, India</p>
+          <p class="text">nilagiri@gmail.com</p>
+        </div>
+        <div class="right">
+          <p class="text">12/11/2222</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 address-sec">
+    <p class="text">BILL TO</p>
+    <hr>
+    <div class="address">
+      <p class="text">{{orderData.delivaryAddress}}</p>
+    </div>
+    </div>
+    <div class="col-6 address-sec">
+      <p class="text">SHIP TO</p>
+      <hr>
+      <div class="address">
+        <p class="text">{{orderData.delivaryAddress}}</p>
+      </div>
+    </div>
+    <div class="col-12">
+      <table class="table">
+        <tr>
+          <th class="head">ITEMS</th>
+          <th class="head">QTY</th>
+          <th class="head">UNIT PRICE</th>
+          <th class="head">TOTAL</th>
+          <th class="head">OPTIONS</th>
+        </tr>
+        <tr *ngFor="let product of productDetails">
+          <th class="text">{{product.product}}</th>
+          <th class="text">{{product.quantity}}</th>
+          <th class="text">{{product.price}}</th>
+          <th class="text">{{product.price * product.quantity}}</th>
+          <th class="link-text" (click)="showStatus(product.productID)">Status</th>
+        </tr>
+      </table>
+      <div class="col-12">
+        <div class="grand">
+          <div class="grand-tot-sec">
+            <p class="text">Sub Total:</p>
+            <span class="text">{{orderData.toPay}}</span>
+          </div>
+          <div class="grand-tot-sec">
+            <p class="text">Shipping:</p>
+            <span class="text">Free</span>
+          </div>
+          <div class="grand-tot-sec">
+            <p class="text">TAX:</p>
+            <span class="text">0%</span>
+          </div>
+          <hr>
+          <div class="grand-tot-sec">
+            <p class="text">TOTAL:</p>
+            <span class="text">{{orderData.toPay}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="button-sec">
+      <button class="primary-button btn-md" mat-raised-button (click)="convetToPDF()">Print</button>
+      <button class="secondary-button btn-md " mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+  <div class="col-6">
+    <!-- <app-update-status [orderData]="orderData" [products]="productDetails"></app-update-status> -->
+    <app-show-status *ngIf="isShowStatus" [orderData]="orderData" [productId]="selectedProductId"></app-show-status>
+  </div>
+</div>

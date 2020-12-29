@@ -1,0 +1,10 @@
+@import '../../../../styles.scss';
+
+.list-view{
+  .table{
+    .link-text{
+      color: $navbar-color;
+      cursor: pointer;
+    }
+  }
+}

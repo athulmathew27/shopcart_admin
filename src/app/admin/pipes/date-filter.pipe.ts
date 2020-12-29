@@ -1,31 +1,80 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { MyorderFull } from '../models/myorder-full.model';
-
+import * as moment from 'moment'
+import { MatTableDataSource } from '@angular/material/table';
+import { filter } from 'rxjs/operators';
 @Pipe({
   name: 'dateFilter'
 })
 export class DateFilterPipe implements PipeTransform {
 
-  filteredData : MyorderFull[]= [];
-  filteredDataTemp : MyorderFull[] = [];
-  transform(value: MyorderFull[], start: string, end :string): unknown {
+
+  filteredData :MatTableDataSource<any>
+
+  transform(orderData: MatTableDataSource<any>, start: string, end :string): unknown {
+
     if(!start && !end){
-      this.filteredData = [];
-      this.filteredDataTemp = [];
-      return value;
+      return orderData;
     }
     else{
-      this.filteredData = [];
-      for(let i = 0; i < value.length; i++){
-        let date = value[i].date.seconds*1000;
-        if(new Date(date) >= new Date(start) && new Date(date) <= new Date(end)){
-          this.filteredData.push(value[i]);
-          console.log(this.filteredData);
-        }
+
+      orderData.filterPredicate = (data, filter)=> {
+        return moment(data.orderPlacedTime) < moment(start)
+        //  && data.orderPlacedTime <= moment(end);
       }
-      return this.filteredData
+      if (orderData.paginator) {
+        orderData.paginator.firstPage();
+      }
+      return orderData
+
+      // var source = orderData.filteredData
+      // for(let i = 0; i < source.length; i++){
+      // let orderDate = source[i].orderPlacedTime.seconds*1000;
+      // var date = moment(end).add(1, 'days')
+      //   if((moment(orderDate) >= moment(start)) &&(moment(orderDate) <=  date)){
+      //     this.filteredData.push(source[i]);
+      //   }
+      // }
+      // orderData.filteredData = this.filteredData;
+      // console.log(orderData)
+      // if (orderData.paginator) {
+      //   orderData.paginator.firstPage();
+      // }
+      // return orderData
     }
     return null;
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if(value){
+//   var source = value.filteredData;
+//   this.filteredData = [];
+//   if(source){
+//     for(let i = 0; i < source.length; i++){
+//       let orderDate = source[i].orderPlacedTime.seconds*1000;
+//       var date = moment(end).add(1, 'days')
+//       if((moment(orderDate) >= moment(start)) &&(moment(orderDate) <=  date)){
+//         this.filteredData.push(source[i]);
+//       }
+//     }
+//     this.filteredDataTemp.filteredData = this.filteredData
+//     if (this.filteredDataTemp.paginator) {
+//       this.filteredDataTemp.paginator.firstPage();
+//     }
+//     return this.filteredDataTemp
+//   }
+// }

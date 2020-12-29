@@ -1,5 +1,3 @@
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
-
 export interface MyorderFull {
   category: string,
   delivaryAddress: string,
@@ -10,7 +8,12 @@ export interface MyorderFull {
   quantity: number,
   toPay: number,
   status? :string,
-  date? : any,
+  orderPlacedTime? : any,
   price : number,
-  myproductId : string
+  myproductId : string,
+  ordered : number,
+  shipped : number,
+  nearby : number,
+  delivered : number,
+  cancelled : number,
 }

@@ -1,0 +1,19 @@
+
+<div class="list-view">
+  <table class="table">
+    <tr>
+      <th class="head">Index</th>
+      <th class="head">Product</th>
+      <th class="head">Options</th>
+    </tr>
+    <tr *ngFor="let product of productData; let i = index">
+      <th class="text">{{i+1}}</th>
+      <th class="text">{{product.product}}</th>
+      <th class="text">
+        <p class="link-text" (click)="showStatus(orderData, product.myproductID)">Status</p>
+      </th>
+    </tr>
+  </table>
+</div>
+
+<app-show-status *ngIf="isShowStatus" [orderData]="orderData" [productId]="selectedProductId"></app-show-status>

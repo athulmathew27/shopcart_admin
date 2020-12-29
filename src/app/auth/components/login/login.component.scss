@@ -58,6 +58,23 @@ input.example-right-align {
         width: 100%;
         height: 90%;
         position: relative;
+        .form-control{
+          border: 1px solid #e0e0e0;
+          height: 35px;
+          font-size: 1.2rem;
+        }
+        .vertical{
+          display: flex;
+          .eye-button{
+            margin-left: -40px;
+            outline: none;
+            border: none;
+          }
+          .eye-icon{
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+          }
+        }
 
         .social-sec{
           position: absolute;

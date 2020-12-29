@@ -1,0 +1,71 @@
+@import '../../../../styles.scss';
+
+.loading-shade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.mat-elevation-z8{
+  padding-top: 5px;
+  margin-top: 2rem;
+  .table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .image{
+      width: 90px;
+      height: 60px;
+      margin-bottom: 0 5px;
+    }
+    .out-of-stock{
+      color: red;
+    }
+    .button-sec{
+      display: flex;
+      .btn-center{
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        .icon{
+          font-size: 14px;
+          padding-top: 3px;
+        }
+      }
+    }
+  }
+}
+
+.top-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  .left{
+    margin: 1.8rem;
+    display: flex;
+    .form-control{
+      width: 260px;
+    }
+    .search-icon{
+      margin-left: -2rem;
+      margin-top: 2px;
+      opacity: .7;
+    }
+  }
+  .right{
+
+  }
+}
+
+
+

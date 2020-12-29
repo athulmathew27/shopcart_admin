@@ -1,0 +1,86 @@
+
+<div class="loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner class="spinner" *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
+<div class="container-fluid" *ngIf="!isLoadingResults">
+<div class="row">
+  <div class="col">
+
+<div class="mat-elevation-z8" >
+
+  <div class="top-section">
+    <div class="left">
+      <input class="form-control" placeholder="Search here" (keyup)="applyFilter($event)"  #input>
+      <mat-icon class="search-icon">search</mat-icon>
+    </div>
+    <div class="right">
+      <button mat-raised-button class="primary-button btn-md" (click)="addNewProduct()">Add New</button>
+    </div>
+  </div>
+
+
+  <mat-table class="table" mat-table [dataSource]="products" matSort>
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> SI. No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="product">
+      <mat-header-cell  *matHeaderCellDef mat-sort-header> Product </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <img [src]="element.image" alt="" class="image">
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.categoryName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="stock">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Stock </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p  *ngIf="element.stock > 0">{{element.stock}}</p>
+        <p class="out-of-stock" *ngIf="element.stock < 1">Out of stock</p>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="options">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Options </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="button-sec">
+          <button class="primary-button btn-center" (click)="onEdit(element)">
+            <mat-icon class="icon">create</mat-icon>
+            Edit
+          </button>
+          <button class="secondary-button btn-center mat-elevation-z2" (click)="onDelete(element.productId)">
+            <mat-icon class="icon">delete_outline</mat-icon>
+            Delete
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row  *matHeaderRowDef="displayColumn"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayColumn;"></mat-row>
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"  showFirstLastButtons></mat-paginator>
+</div>
+
+  </div>
+</div>
+</div>
+

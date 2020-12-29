@@ -1,23 +1,30 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { MyorderFull } from '../models/myorder-full.model';
+import { Orders } from '../models/order.model';
 
 @Pipe({
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
 
-  filteredData :any = []
+  filteredData : MatTableDataSource<Orders>
   //  filteredData :MyorderFull = []
-  transform(value: MyorderFull[], searchBy: string): unknown {
+  transform(orderData: MatTableDataSource<Orders>, searchBy: string): unknown {
     if(!searchBy){
-      this.filteredData = [];
-      return value
+      return orderData
     }
     else{
-      for (let i = 0; i < value.length; i++) {
-        if(value[i].product.startsWith(searchBy)){
-          this.filteredData.push(value[i])
-        }
+      this.filteredData = orderData;
+      var searchOnColumn : string[] = ['orderId', 'delivaryAddress'];
+      this.filteredData.filterPredicate = (data, filter)=>{
+        return searchOnColumn.some(element=>{
+          return element != 'actions' && data[element].toLowerCase().indexOf(filter) != -1;
+        })
+      }
+      this.filteredData.filter = searchBy.toLowerCase();
+      if (this.filteredData.paginator) {
+        this.filteredData.paginator.firstPage();
       }
       return this.filteredData
     }

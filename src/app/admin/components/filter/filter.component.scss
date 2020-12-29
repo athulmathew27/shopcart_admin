@@ -1,13 +1,26 @@
-.date-picker{
-  width: 200px;
-  height: 2.2rem;
-  margin-top: .6rem;
-}
+
 .vertically{
   display: flex;
-  margin: 1rem;
-  .form-feild{
+  margin: 1.2rem 1rem 0rem 1rem;
+  .vertical{
+    display: flex;
+    align-items: center;
     margin-right: 2rem;
+    margin-bottom: 1rem;
+    .date-picker{
+      width: 300px;
+      height: 2.2rem;
+      margin-top: .6rem;
+    }
+    .calendar-icon{
+      margin-left: -2rem;
+      margin-top: 10px;
+      opacity: 0.7;
+      font-size: 1.7rem;
+    }
+  }
+  .form-feild{
+    margin-right: 1rem;
     width: 100px;
   }
 }

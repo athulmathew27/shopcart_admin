@@ -1,0 +1,28 @@
+.card{
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  .top{
+    .text{
+      font-size: 1.1rem;
+      opacity: .8;
+    }
+  }
+  .text-main{
+    font-size: 1.8rem;
+    opacity: .6;
+    font-weight: 600;
+  }
+  .bottom{
+    display: flex;
+    justify-content: space-between;
+    .text{
+      font-size: 1rem;
+      opacity: .7;
+    }
+    .link-text{
+      font-size: 1rem;
+      opacity: .7;
+      cursor: pointer;
+    }
+  }
+}

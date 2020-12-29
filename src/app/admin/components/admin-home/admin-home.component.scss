@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 .container{
   height: 100vh;
 
@@ -9,15 +10,18 @@
 
     .card{
       margin-top: 1rem;
+      cursor: pointer;
       .icon{
         display:inline-block;
         vertical-align:middle;
         margin-right: 1rem;
+        color: $navbar-color;
       }
       .text{
         font-size: 1.2rem;
         display:inline-block;
         vertical-align:middle;
+        color: $navbar-color;
       }
     }
   }
